@@ -1,0 +1,177 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+$violet: #674baf;
+$soft-magenta: #e882e8;
+
+$poppins400: 400;
+$poppins600: 600;
+$open-sans400: 400;
+
+// *css reset*
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* 2. Remove default margin */
+* {
+  margin: 0;
+}
+
+body {
+  /* 3. Add accessible line-height */
+  line-height: 1.5;
+  /* 4. Improve text rendering */
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 5. Improve media defaults */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* 6. Inherit fonts for form controls */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* 7. Avoid text overflows */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+/* 8. Improve line wrapping */
+p {
+  text-wrap: pretty;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+}
+
+body {
+  background-color: $violet;
+  background-image: url(./images/bg-desktop.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  header {
+    padding: 4vh 5vw;
+    width: fit-content;
+  }
+  main {
+    display: flex;
+    padding: 0 5vw;
+    gap: 5vw;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    img {
+      flex: 1;
+      flex-basis: 40%;
+      width: 55%;
+      height: auto;
+    }
+    .content {
+      flex: 1;
+      flex-basis: 60%;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 4vh;
+      .title {
+        font-family: "Poppins", sans-serif;
+        font-weight: $poppins600;
+        font-style: normal;
+      }
+      .description {
+        font-family: "Open Sans", serif;
+        font-optical-sizing: auto;
+        font-weight: $open-sans400;
+        font-style: normal;
+        font-variation-settings: "wdth" 100;
+      }
+      .btn {
+        font-family: "Poppins", sans-serif;
+        font-style: normal;
+        font-weight: $poppins400;
+        color: $violet;
+        padding: 2vh 2.5vw;
+        border-radius: 50px;
+        border: none;
+
+        &:hover {
+          background-color: $soft-magenta;
+          cursor: pointer;
+          transition: 0.3s ease-in-out;
+          color: white;
+        }
+      }
+    }
+  }
+  footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 3vw;
+    margin-right: 5vw;
+    .fb-icon,
+    .twitter-icon,
+    .insta-icon {
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+  .attribution {
+    text-align: center;
+    margin: 3vh 0;
+
+    a {
+      text-decoration: none;
+      color: white;
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  body {
+    background-image: url(./images/bg-mobile.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    main {
+      flex-direction: column;
+      img {
+        flex-basis: 50%;
+        width: 100%;
+        height: auto;
+      }
+      .content {
+        flex-basis: 50%;
+        .btn {
+          padding: 2vh 10vw;
+        }
+      }
+    }
+  }
+}
